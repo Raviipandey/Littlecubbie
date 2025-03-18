@@ -3,9 +3,9 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.cubbie", // Replace with your app's package name
+      "package_name": "com.cubbie",
       "sha256_cert_fingerprints": [
-        "YOUR_APP_SHA256_FINGERPRINT" // Replace with your app's SHA-256 fingerprint
+        "D1:10:52:EF:F6:FA:09:97:F7:79:AB:C9:61:C0:A7:6E:0D:0C:14:D5:35:67:C5:72:8F:2B:C1:EC:D2:FA:61:AE"
       ]
     }
   }
