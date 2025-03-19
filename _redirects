@@ -1,5 +1,6 @@
 # Serve assetlinks.json directly for Android App Links verification
 /.well-known/assetlinks.json /.well-known/assetlinks.json 200
+/.well-known/apple-app-site-association /.well-known/apple-app-site-association 200
 
 # Allow deep links to be handled by the app
 /deeplink/* - [L]
