@@ -1,1 +1,5 @@
+# Serve assetlinks.json directly
+/.well-known/assetlinks.json /.well-known/assetlinks.json 200
+
+# Redirect all other requests to the Play Store
 /* https://play.google.com/store/apps/details?id=com.cubbie 302
