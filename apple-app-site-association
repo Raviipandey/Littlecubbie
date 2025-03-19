@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "F3KYSZ2W4H.com.digitrix.cubbies",
+        "paths": [
+          "/deeplink/*"
+        ]
+      }
+    ]
+  }
+}
