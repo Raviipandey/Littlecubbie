@@ -6,5 +6,5 @@
 /deeplink/* - [L]
 
 # Redirect all Android and iOS URLs with wildcard support
-/Android/* https://github.com/Raviipandey/Littlecubbie/releases/download/cubbie/app-debug.apk 302
+/Android/* /Android/* /invite.html 200
 /Ios/* https://apps.apple.com/in/app/little-cubbie/id6449142255 302

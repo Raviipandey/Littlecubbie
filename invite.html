@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Cubbie - Download</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f7;
+        }
+        .container {
+            max-width: 500px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 10px;
+            background-color: #4CAF50;
+            width: 0;
+            transition: width 3s linear;
+        }
+        .download-button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .download-button:hover {
+            background-color: #3367D6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="your-logo-url.png" alt="Little Cubbie Logo">
+        <h1>Little Cubbie</h1>
+        <p>Your download will start automatically in <span id="countdown">3</span> seconds...</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <button class="download-button" id="downloadButton">Download Now</button>
+    </div>
+
+    <script>
+        // Parse the path to get the data after /Android/
+        const path = window.location.pathname;
+        const dataMatch = path.match(/\/Android\/(.*)/);
+        const deepLinkData = dataMatch ? dataMatch[1] : '';
+        
+        // Store the data in localStorage
+        if (deepLinkData) {
+            localStorage.setItem('littleCubbieDeepLinkData', deepLinkData);
+            console.log('Stored deeplink data:', deepLinkData);
+        }
+        
+        // APK download link
+        const apkUrl = 'https://github.com/Raviipandey/Littlecubbie/releases/download/cubbie/app-debug.apk';
+        
+        // Start countdown
+        let count = 3;
+        const countdownElement = document.getElementById('countdown');
+        const progressBar = document.getElementById('progressBar');
+        const downloadButton = document.getElementById('downloadButton');
+        
+        // Animate progress bar
+        progressBar.style.width = '100%';
+        
+        const countdown = setInterval(() => {
+            count--;
+            countdownElement.textContent = count;
+            
+            if (count <= 0) {
+                clearInterval(countdown);
+                window.location.href = apkUrl;
+            }
+        }, 1000);
+        
+        // Manual download button
+        downloadButton.addEventListener('click', () => {
+            clearInterval(countdown);
+            window.location.href = apkUrl;
+        });
+    </script>
+</body>
+</html>
