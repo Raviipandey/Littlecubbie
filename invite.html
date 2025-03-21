@@ -86,13 +86,16 @@
       // Capture the full path and query parameters
       const fullPath = window.location.pathname + window.location.search;
 
+      // Log the full path for debugging
+      console.log("Full path captured:", fullPath);
+
       // Store the full path in localStorage
       if (fullPath) {
         try {
           localStorage.setItem("littleCubbieFullPath", fullPath);
           // Add a timestamp to track when it was saved
           localStorage.setItem("littleCubbieTimestamp", Date.now());
-          console.log("Stored full path:", fullPath);
+          console.log("Stored full path in localStorage:", fullPath);
 
           // Also store in sessionStorage as a backup
           sessionStorage.setItem("littleCubbieFullPath", fullPath);
