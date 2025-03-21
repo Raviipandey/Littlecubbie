@@ -6,5 +6,5 @@
 /deeplink/* - [L]
 
 # Redirect all Android and iOS URLs with wildcard support
-/Android/* /invite.html?path=/Android/:splat 200
+/Android/* /Android.html 200
 /Ios/* https://apps.apple.com/in/app/little-cubbie/id6449142255 302
