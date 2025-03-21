@@ -83,21 +83,19 @@
     </div>
 
     <script>
-      // Parse the path to get the data after /Android/
-      const path = window.location.pathname;
-      const dataMatch = path.match(/\/Android\/(.*)/);
-      const deepLinkData = dataMatch ? dataMatch[1] : "";
+      // Capture the full path and query parameters
+      const fullPath = window.location.pathname + window.location.search;
 
-      // Store the data in localStorage immediately
-      if (deepLinkData) {
+      // Store the full path in localStorage
+      if (fullPath) {
         try {
-          localStorage.setItem("littleCubbieDeepLinkData", deepLinkData);
+          localStorage.setItem("littleCubbieFullPath", fullPath);
           // Add a timestamp to track when it was saved
-          localStorage.setItem("littleCubbieDeepLinkTimestamp", Date.now());
-          console.log("Stored deeplink data:", deepLinkData);
+          localStorage.setItem("littleCubbieTimestamp", Date.now());
+          console.log("Stored full path:", fullPath);
 
           // Also store in sessionStorage as a backup
-          sessionStorage.setItem("littleCubbieDeepLinkData", deepLinkData);
+          sessionStorage.setItem("littleCubbieFullPath", fullPath);
         } catch (e) {
           console.error("Error storing in localStorage:", e);
         }
@@ -106,7 +104,7 @@
       // Verify the data was stored correctly
       console.log(
         "Checking localStorage:",
-        localStorage.getItem("littleCubbieDeepLinkData")
+        localStorage.getItem("littleCubbieFullPath")
       );
 
       // APK download link
@@ -131,7 +129,7 @@
           // Final check of localStorage before leaving
           console.log(
             "Final localStorage check:",
-            localStorage.getItem("littleCubbieDeepLinkData")
+            localStorage.getItem("littleCubbieFullPath")
           );
           window.location.href = apkUrl;
         }
