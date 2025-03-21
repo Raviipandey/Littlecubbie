@@ -83,8 +83,9 @@
     </div>
 
     <script>
-      // Capture the full path and query parameters
-      const fullPath = window.location.pathname + window.location.search;
+      // Extract the full path from the query parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const fullPath = urlParams.get("path") || window.location.pathname;
 
       // Log the full path for debugging
       console.log("Full path captured:", fullPath);
